@@ -1,0 +1,55 @@
+.login {
+  font-size: 28px;
+}
+.form {
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__label {
+    color: rgb(161, 160, 160);
+  }
+  &__input {
+    padding: 5px;
+  }
+  &__error {
+    background-color: rgb(214, 130, 130);
+    width: 350px;
+    height: 20px;
+    padding: 10px;
+    color: white;
+  }
+  &__submit {
+    height: 40px;
+    width: 150px;
+    margin: auto;
+    margin-top: 5px;
+    background-color: rgb(232, 184, 50);
+    border: none;
+    cursor: pointer;
+  }
+}
+.register {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  font-size: small;
+  &__text {
+    color: darkgray;
+  }
+  &__link {
+    text-decoration: none;
+    color: dodgerblue;
+    align-self: center;
+    cursor: pointer;
+  }
+  &__link:hover {
+    opacity: 0.6;
+  }
+}

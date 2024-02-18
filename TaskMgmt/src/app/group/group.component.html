@@ -1,0 +1,35 @@
+<div class="page">
+  <div class="newgroup">
+    <div>Create another Organization</div>
+  </div>
+  <div class="container">
+    <h2>Welcome to TaskMgmt</h2>
+    <p>
+      Select an organization to login, or contact your admin for more details.
+    </p>
+    <form [formGroup]="groupForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="form__field">
+        <label for="groupName" class="form__label"></label>
+        <select
+          formControlName="groupId"
+          aria-label="group"
+          class="form__select"
+        >
+          <option value="" disabled selected>Select Group</option>
+          <option *ngFor="let group of groupList" [value]="group.groupId">
+            {{ group.groupName }}
+          </option>
+        </select>
+      </div>
+      <div class="form__field">
+        <button
+          type="submit"
+          class="form__submit"
+          [disabled]="groupForm.invalid"
+        >
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

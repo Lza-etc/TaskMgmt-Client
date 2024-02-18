@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: rgb(237, 175, 74);
+  color: #fff;
+  &__menu {
+    display: flex;
+    gap: 50px;
+  }
+  &__brand {
+    font-size: large;
+    cursor: pointer;
+  }
+  &__brand:hover {
+    opacity: 0.3;
+  }
+  &__item:hover {
+    cursor: pointer;
+    opacity: 0.3;
+  }
+}

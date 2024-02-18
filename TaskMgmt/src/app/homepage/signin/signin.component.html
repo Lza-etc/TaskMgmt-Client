@@ -1,0 +1,43 @@
+<p class="login">Login</p>
+<form [formGroup]="signinForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="form__field">
+    <label for="firstName" class="form__label">Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      aria-label="email"
+      class="form__input"
+    />
+    <div class="text-danger">
+      <ng-container
+        *ngIf=" (signinForm.controls['email'].touched  ) && signinForm.controls['email'].errors?.['required']"
+        >Email is required</ng-container
+      >
+    </div>
+  </div>
+  <div class="form__field">
+    <label for="password" class="form__label">Password</label>
+    <input
+      type="text"
+      formControlName="password"
+      aria-label="password"
+      class="form__input"
+    />
+    <div class="text-danger">
+      <ng-container
+        *ngIf=" (signinForm.controls['password'].touched  ) && signinForm.controls['password'].errors?.['required']"
+        >Email is required</ng-container
+      >
+    </div>
+  </div>
+  <div *ngIf="invalidCredential" class="form__error">Invalid Credential</div>
+  <div class="form__field">
+    <button type="submit" class="form__submit">Login</button>
+  </div>
+</form>
+<div class="register">
+  <p class="register__text">New User?</p>
+  <a class="register__link" routerLink="/register" routerLinkActive="active"
+    >Create Account</a
+  >
+</div>

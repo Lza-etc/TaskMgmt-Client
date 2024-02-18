@@ -1,0 +1,82 @@
+<p class="register">Register Here</p>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="form__field">
+    <label for="firstName" class="form__label">Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      aria-label="email"
+      class="form__input"
+    />
+    <div class="text-danger">
+      <ng-container
+        *ngIf=" (signupForm.controls['email'].touched  ) && signupForm.controls['email'].errors?.['required']"
+        >Email is required</ng-container
+      >
+    </div>
+  </div>
+  <div class="form__field">
+    <label for="password" class="form__label">Password</label>
+    <input
+      type="text"
+      formControlName="password"
+      aria-label="password"
+      class="form__input"
+    />
+    <div class="text-danger">
+      <ng-container
+        *ngIf=" (signupForm.controls['password'].touched  ) && signupForm.controls['password'].errors?.['required']"
+        >Email is required</ng-container
+      >
+    </div>
+  </div>
+  <div class="form__field">
+    <label for="name" class="form__label">Name</label>
+    <input
+      type="text"
+      formControlName="name"
+      aria-label="name"
+      class="form__input"
+    />
+    <div class="text-danger">
+      <ng-container
+        *ngIf=" (signupForm.controls['name'].touched  ) && signupForm.controls['name'].errors?.['required']"
+        >Name is required</ng-container
+      >
+    </div>
+  </div>
+  <div class="form__field">
+    <label for="groupName" class="form__label">Group Name</label>
+    <input
+      type="text"
+      formControlName="groupName"
+      aria-label="GroupName"
+      class="form__input"
+    />
+    <div class="text-danger">
+      <ng-container
+        *ngIf=" (signupForm.controls['groupName'].touched  ) && signupForm.controls['groupName'].errors?.['required']"
+        >Group Name is required</ng-container
+      >
+    </div>
+  </div>
+  <div class="form__field">
+    <label for="referralCode" class="form__label"
+      >Referral Code (optional)</label
+    >
+    <input
+      type="text"
+      formControlName="referralCode"
+      aria-label="referralCode"
+      class="form__input"
+    />
+  </div>
+  <div *ngIf="invalidCredential" class="form__error">Invalid Credential</div>
+  <div class="form__field">
+    <button type="submit" class="form__submit">Register</button>
+  </div>
+</form>
+<div class="login">
+  <p class="login__text">Already have account?</p>
+  <a class="login__link" routerLink="/login">Sign in</a>
+</div>
