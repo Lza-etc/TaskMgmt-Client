@@ -3,7 +3,7 @@
   <div class="form__field">
     <label for="firstName" class="form__label">Email</label>
     <input
-      type="text"
+      type="email"
       formControlName="email"
       aria-label="email"
       class="form__input"
@@ -11,14 +11,15 @@
     <div class="text-danger">
       <ng-container
         *ngIf=" (signupForm.controls['email'].touched  ) && signupForm.controls['email'].errors?.['required']"
-        >Email is required</ng-container
+        ><i class="fa-solid fa-circle-exclamation"></i> &nbsp; Email is
+        required</ng-container
       >
     </div>
   </div>
   <div class="form__field">
     <label for="password" class="form__label">Password</label>
     <input
-      type="text"
+      type="password"
       formControlName="password"
       aria-label="password"
       class="form__input"
@@ -26,7 +27,8 @@
     <div class="text-danger">
       <ng-container
         *ngIf=" (signupForm.controls['password'].touched  ) && signupForm.controls['password'].errors?.['required']"
-        >Email is required</ng-container
+        ><i class="fa-solid fa-circle-exclamation"></i> &nbsp; Password is
+        required</ng-container
       >
     </div>
   </div>
@@ -41,7 +43,8 @@
     <div class="text-danger">
       <ng-container
         *ngIf=" (signupForm.controls['name'].touched  ) && signupForm.controls['name'].errors?.['required']"
-        >Name is required</ng-container
+        ><i class="fa-solid fa-circle-exclamation"></i> &nbsp; Name is
+        required</ng-container
       >
     </div>
   </div>
@@ -56,7 +59,8 @@
     <div class="text-danger">
       <ng-container
         *ngIf=" (signupForm.controls['groupName'].touched  ) && signupForm.controls['groupName'].errors?.['required']"
-        >Group Name is required</ng-container
+        ><i class="fa-solid fa-circle-exclamation"></i> &nbsp; Group Name is
+        required</ng-container
       >
     </div>
   </div>

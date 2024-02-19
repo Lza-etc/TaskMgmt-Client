@@ -16,9 +16,13 @@
   &__input {
     padding: 5px;
   }
+  .text-danger {
+    color: #c70123;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
   &__error {
-    background-color: rgb(214, 130, 130);
-    width: 350px;
+    background-color: #d50a0ac5;
     height: 20px;
     padding: 10px;
     color: white;

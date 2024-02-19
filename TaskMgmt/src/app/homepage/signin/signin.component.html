@@ -11,14 +11,15 @@
     <div class="text-danger">
       <ng-container
         *ngIf=" (signinForm.controls['email'].touched  ) && signinForm.controls['email'].errors?.['required']"
-        >Email is required</ng-container
+        ><i class="fa-solid fa-circle-exclamation"></i> &nbsp; Email is
+        required</ng-container
       >
     </div>
   </div>
   <div class="form__field">
     <label for="password" class="form__label">Password</label>
     <input
-      type="text"
+      type="password"
       formControlName="password"
       aria-label="password"
       class="form__input"
@@ -26,7 +27,8 @@
     <div class="text-danger">
       <ng-container
         *ngIf=" (signinForm.controls['password'].touched  ) && signinForm.controls['password'].errors?.['required']"
-        >Email is required</ng-container
+        ><i class="fa-solid fa-circle-exclamation"></i> &nbsp; Password is
+        required</ng-container
       >
     </div>
   </div>

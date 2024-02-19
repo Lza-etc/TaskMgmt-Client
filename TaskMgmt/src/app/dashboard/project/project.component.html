@@ -1,1 +1,8 @@
-<h1>Hii</h1>
+<div *ngFor="let project of projectList">
+  <div class="row">
+    <div class="col">{{ project.projectId }}</div>
+    <div class="col">{{ project.projectName }}</div>
+    <div class="col">{{ project.projectDescription }}</div>
+    <div class="col">{{ project.ownerId }}</div>
+  </div>
+</div>
