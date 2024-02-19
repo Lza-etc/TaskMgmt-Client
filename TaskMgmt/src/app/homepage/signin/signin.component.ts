@@ -37,7 +37,7 @@ export class SigninComponent {
       email: this.signinForm.value.email,
       password: this.signinForm.value.password,
     };
-    this.userService.Post('login', user).subscribe(
+    this.userService.Post<UserSignIn>('login', user).subscribe(
       (result) => {
         localStorage.setItem('userToken', result);
         this.router.navigateByUrl('/groups');

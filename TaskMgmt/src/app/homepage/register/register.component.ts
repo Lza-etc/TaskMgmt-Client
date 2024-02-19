@@ -44,7 +44,7 @@ export class RegisterComponent {
       referralCode: this.signupForm.value.referralCode,
     };
     console.log(this.user);
-    this.userService.Post('signup', this.user).subscribe(
+    this.userService.Post<UserRegister>('signup', this.user).subscribe(
       (result) => {
         console.log('Success:', result);
         localStorage.setItem('userToken', result);

@@ -1,6 +1,8 @@
 <div class="page">
   <div class="newgroup">
-    <div>Create another Organization</div>
+    <div class="newgroup__button" (click)="openCreateModal()">
+      Create another Organization
+    </div>
   </div>
   <div class="container">
     <h2>Welcome to TaskMgmt</h2>
@@ -15,7 +17,7 @@
           aria-label="group"
           class="form__select"
         >
-          <option value="" disabled selected>Select Group</option>
+          <option value="" disabled selected>Select Organization</option>
           <option *ngFor="let group of groupList" [value]="group.groupId">
             {{ group.groupName }}
           </option>
@@ -32,4 +34,60 @@
       </div>
     </form>
   </div>
+  <div class="enroll">
+    <p class="enroll__title">Accept an Invitation</p>
+    <button class="enroll__button" type="button" (click)="openEnrollModal()">
+      Join
+    </button>
+  </div>
+  <app-modal *ngIf="showCreateModal">
+    <h2>Create Group</h2>
+    <form (ngSubmit)="createGroup()">
+      <div class="form-group">
+        <label for="groupName">Group Name</label>
+        <input
+          type="text"
+          id="groupName"
+          name="groupName"
+          [(ngModel)]="newGroup.groupName"
+          required
+        />
+      </div>
+      <div class="buttons">
+        <button class="submit" type="submit">Create</button>
+        <button class="clear" type="button" (click)="closeCreateModal()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </app-modal>
+  <app-modal *ngIf="showEnrollModal">
+    <h2>Accept an Invitation</h2>
+    <form (ngSubmit)="EnrollToGroup()">
+      <div class="form-group">
+        <label for="groupName">Group Name</label>
+        <input
+          type="text"
+          id="groupName"
+          name="groupName"
+          [(ngModel)]="enrollGroup.groupName"
+          required
+        />
+        <label for="referralCode">Referral Code</label>
+        <input
+          type="text"
+          id="referralCode"
+          name="referralCode"
+          [(ngModel)]="enrollGroup.referralCode"
+          required
+        />
+      </div>
+      <div class="buttons">
+        <button class="submit" type="submit">Create</button>
+        <button class="clear" type="button" (click)="closeEnrollModal()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </app-modal>
 </div>

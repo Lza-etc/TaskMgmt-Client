@@ -12,9 +12,10 @@ import { JwtInterceptor } from './jwt.interceptor';
 import { GroupComponent } from './group/group.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HomepageModule } from './homepage/homepage.module';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent, GroupComponent],
+  declarations: [AppComponent, GroupComponent, ModalComponent],
   imports: [
     BrowserModule,
     CommonModule,

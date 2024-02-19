@@ -16,7 +16,7 @@ export class RestService {
     });
   }
 
-  Post(endpoint: string, data: object) {
+  Post<T>(endpoint: string, data: T) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     return this.http.post(this.baseUrl + endpoint, data, {

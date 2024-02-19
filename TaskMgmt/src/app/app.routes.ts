@@ -12,6 +12,7 @@ export const routes: Routes = [
     path: '',
     component: HomepageComponent,
     children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: SigninComponent },
       { path: 'register', component: RegisterComponent },
     ],
