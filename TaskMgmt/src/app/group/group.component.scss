@@ -7,42 +7,6 @@
   margin-top: 150px;
 }
 
-.form-group {
-  margin-bottom: 15px;
-
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  input {
-    width: 55%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-}
-.buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 2px;
-  color: white;
-  button {
-    cursor: pointer;
-    color: white;
-    width: 100px;
-    padding: 5px;
-    border: none;
-    border-radius: 2px;
-  }
-  .submit {
-    background-color: rgb(77, 167, 7);
-  }
-  .clear {
-    background-color: red;
-  }
-}
-
 .page {
   margin: 5px;
   height: 100vh;

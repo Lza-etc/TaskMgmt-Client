@@ -8,11 +8,11 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private toastr: ToastrService) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -31,16 +31,7 @@ export class JwtInterceptor implements HttpInterceptor {
         },
       });
 
-      return next.handle(authRequest).pipe(
-        tap((event: HttpEvent<any>) => {
-          if (event instanceof HttpResponse) {
-          }
-        }),
-        catchError((error: HttpErrorResponse) => {
-          console.log('error', error.message);
-          throw error;
-        })
-      );
+      return next.handle(authRequest);
     } else {
       return next.handle(request);
     }

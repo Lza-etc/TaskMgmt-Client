@@ -1,6 +1,6 @@
 <div class="page">
   <div class="newgroup">
-    <div class="newgroup__button" (click)="openCreateModal()">
+    <div class="newgroup__button" (click)="showAddModal()">
       Create another Organization
     </div>
   </div>
@@ -36,58 +36,18 @@
   </div>
   <div class="enroll">
     <p class="enroll__title">Accept an Invitation</p>
-    <button class="enroll__button" type="button" (click)="openEnrollModal()">
+    <button class="enroll__button" type="button" (click)="showJoinModal()">
       Join
     </button>
   </div>
-  <app-modal *ngIf="showCreateModal">
-    <h2>Create Group</h2>
-    <form (ngSubmit)="createGroup()">
-      <div class="form-group">
-        <label for="groupName">Group Name</label>
-        <input
-          type="text"
-          id="groupName"
-          name="groupName"
-          [(ngModel)]="newGroup.groupName"
-          required
-        />
-      </div>
-      <div class="buttons">
-        <button class="submit" type="submit">Create</button>
-        <button class="clear" type="button" (click)="closeCreateModal()">
-          Cancel
-        </button>
-      </div>
-    </form>
-  </app-modal>
-  <app-modal *ngIf="showEnrollModal">
-    <h2>Accept an Invitation</h2>
-    <form (ngSubmit)="EnrollToGroup()">
-      <div class="form-group">
-        <label for="groupName">Group Name</label>
-        <input
-          type="text"
-          id="groupName"
-          name="groupName"
-          [(ngModel)]="enrollGroup.groupName"
-          required
-        />
-        <label for="referralCode">Referral Code</label>
-        <input
-          type="text"
-          id="referralCode"
-          name="referralCode"
-          [(ngModel)]="enrollGroup.referralCode"
-          required
-        />
-      </div>
-      <div class="buttons">
-        <button class="submit" type="submit">Create</button>
-        <button class="clear" type="button" (click)="closeEnrollModal()">
-          Cancel
-        </button>
-      </div>
-    </form>
-  </app-modal>
+  
+  <app-add-group-modal
+    *ngIf="showCreateModal"
+    (showCreateModal)="setCreateModal($event)"
+  ></app-add-group-modal>
+
+  <app-enroll-group-modal
+    *ngIf="showEnrollModal"
+    (showEnrollModal)="setEnrollModal($event)"
+  ></app-enroll-group-modal>
 </div>

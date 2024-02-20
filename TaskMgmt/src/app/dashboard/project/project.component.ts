@@ -22,14 +22,12 @@ export class ProjectComponent implements OnInit {
       this.groupId = params['groupId'];
       this.restService.GetAll('groups/' + this.groupId + '/projects').subscribe(
         (result) => {
-          console.log(result);
           this.projectList = result as Project[];
         },
         (error) => {
           console.error('Error:', error);
         }
       );
-      console.log('Group ID:', this.groupId);
     });
   }
 }

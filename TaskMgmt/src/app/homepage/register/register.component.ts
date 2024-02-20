@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   signupForm!: FormGroup;
-  invalidCredential: boolean = false;
   user!: UserRegister;
 
   constructor(
@@ -28,7 +27,14 @@ export class RegisterComponent {
           Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
         ],
       ],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
       name: ['', Validators.required],
       groupName: ['', Validators.required],
       referralCode: [''],
@@ -36,25 +42,24 @@ export class RegisterComponent {
   }
 
   public onSubmit() {
-    this.user = {
-      email: this.signupForm.value.email,
-      password: this.signupForm.value.password,
-      name: this.signupForm.value.name,
-      groupName: this.signupForm.value.groupName,
-      referralCode: this.signupForm.value.referralCode,
-    };
-    console.log(this.user);
-    this.userService.Post<UserRegister>('signup', this.user).subscribe(
-      (result) => {
-        console.log('Success:', result);
-        localStorage.setItem('userToken', result);
-        this.router.navigateByUrl('/groups');
-      },
-      (error) => {
-        console.error('Error');
-        this.invalidCredential = true;
-        this.signupForm.reset();
-      }
-    );
+    if (this.signupForm.valid) {
+      this.user = {
+        email: this.signupForm.value.email,
+        password: this.signupForm.value.password,
+        name: this.signupForm.value.name,
+        groupName: this.signupForm.value.groupName,
+        referralCode: this.signupForm.value.referralCode,
+      };
+      this.userService.Post<UserRegister>('signup', this.user).subscribe(
+        (result) => {
+          console.log('Success:', result);
+          localStorage.setItem('userToken', result);
+          this.router.navigateByUrl('/groups');
+        },
+        (error) => {
+          this.signupForm.reset();
+        }
+      );
+    }
   }
 }

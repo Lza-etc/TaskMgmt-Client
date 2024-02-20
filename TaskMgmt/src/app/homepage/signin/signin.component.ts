@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
   signinForm!: FormGroup;
-  invalidCredential: boolean = false;
+  user!: UserSignIn;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,20 +33,20 @@ export class SigninComponent {
   }
 
   public onSubmit() {
-    const user: UserSignIn = {
-      email: this.signinForm.value.email,
-      password: this.signinForm.value.password,
-    };
-    this.userService.Post<UserSignIn>('login', user).subscribe(
-      (result) => {
-        localStorage.setItem('userToken', result);
-        this.router.navigateByUrl('/groups');
-      },
-      (error) => {
-        console.error('Error:', error);
-        this.invalidCredential = true;
-        this.signinForm.reset();
-      }
-    );
+    if (this.signinForm.valid) {
+      this.user = {
+        email: this.signinForm.value.email,
+        password: this.signinForm.value.password,
+      };
+      this.userService.Post<UserSignIn>('login', this.user).subscribe(
+        (result) => {
+          localStorage.setItem('userToken', result);
+          this.router.navigateByUrl('/groups');
+        },
+        (error) => {
+          this.signinForm.reset();
+        }
+      );
+    }
   }
 }

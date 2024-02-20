@@ -14,6 +14,10 @@
         ><i class="fa-solid fa-circle-exclamation"></i> &nbsp; Email is
         required</ng-container
       >
+      <ng-container *ngIf="signinForm.get('email')?.errors?.['pattern']"
+        ><i class="fa-solid fa-circle-exclamation"></i> &nbsp; Not a valid
+        Email</ng-container
+      >
     </div>
   </div>
   <div class="form__field">
@@ -32,7 +36,6 @@
       >
     </div>
   </div>
-  <div *ngIf="invalidCredential" class="form__error">Invalid Credential</div>
   <div class="form__field">
     <button type="submit" class="form__submit">Login</button>
   </div>

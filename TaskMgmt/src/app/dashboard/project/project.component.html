@@ -1,8 +1,20 @@
-<div *ngFor="let project of projectList">
-  <div class="row">
-    <div class="col">{{ project.projectId }}</div>
-    <div class="col">{{ project.projectName }}</div>
-    <div class="col">{{ project.projectDescription }}</div>
-    <div class="col">{{ project.ownerId }}</div>
+<div class="page">
+  <div class="page__title">Projects</div>
+  <div class="add-project">New Project</div>
+  <div class="heading">
+    <div class="grid-container">
+      <div class="box">Name</div>
+      <div class="box">Description</div>
+      <div class="box">Owner</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="grid-container">
+      <ng-container *ngFor="let project of projectList">
+        <a class="box link">{{ project.projectName }} </a>
+        <div class="box">{{ project.projectDescription }}</div>
+        <div class="box">{{ project.ownerId }}</div>
+      </ng-container>
+    </div>
   </div>
 </div>

@@ -12,7 +12,13 @@ import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   declarations: [DashboardComponent, NavbarComponent, ProjectComponent],
-  imports: [ReactiveFormsModule, HttpClientModule, FormsModule, RouterOutlet],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    RouterOutlet,
+  ],
   providers: [RestService],
 })
 export class DashboardModule {}

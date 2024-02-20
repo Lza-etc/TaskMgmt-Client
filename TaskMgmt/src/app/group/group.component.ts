@@ -17,7 +17,6 @@ export class GroupComponent implements OnInit {
   selectedGroup!: number;
   showCreateModal: boolean = false;
   showEnrollModal: boolean = false;
-  newGroup: GroupDTO = { groupName: '' };
   enrollGroup: EnrollDTO = { groupName: '', referralCode: '' };
 
   constructor(
@@ -39,44 +38,22 @@ export class GroupComponent implements OnInit {
     });
   }
 
-  openCreateModal() {
-    this.showCreateModal = true;
-  }
-  openEnrollModal() {
-    this.showEnrollModal = true;
-  }
-  closeEnrollModal() {
-    this.showEnrollModal = false;
-  }
-  closeCreateModal() {
-    this.showCreateModal = false;
-  }
 
-  createGroup() {
-    this.restService.Post<GroupDTO>('groups', this.newGroup).subscribe(
-      (result) => {
-        window.location.reload();
-      },
-      (error) => console.log(error)
-    );
-    this.closeCreateModal();
-  }
-
-  EnrollToGroup() {
-    this.restService
-      .Post<EnrollDTO>('groups/enrollments', this.enrollGroup)
-      .subscribe(
-        (result) => {
-          window.location.reload();
-        },
-        (error) => console.log(error)
-      );
-    this.closeEnrollModal();
-  }
   public onSubmit() {
-    localStorage.setItem('groupId', this.groupForm.value.groupId);
     this.router.navigateByUrl(
       `/groups/${this.groupForm.value.groupId}/projects`
     );
+  }
+  showAddModal() {
+    this.showCreateModal = true;
+  }
+  setCreateModal(showCreateModal: boolean) {
+    this.showCreateModal = showCreateModal;
+  }
+  showJoinModal() {
+    this.showEnrollModal = true;
+  }
+  setEnrollModal(showEnrollModal: boolean) {
+    this.showEnrollModal = showEnrollModal;
   }
 }
