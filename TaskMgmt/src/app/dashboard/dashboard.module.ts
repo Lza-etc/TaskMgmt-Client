@@ -9,15 +9,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestService } from '../services/rest.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard.component';
+import { AddProjectModalComponent } from '../add-project-modal/add-project-modal.component';
+import { ModalComponent } from '../modal/modal.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NavbarComponent, ProjectComponent],
+  declarations: [
+    DashboardComponent,
+    NavbarComponent,
+    ProjectComponent,
+    AddProjectModalComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
     RouterOutlet,
+    ModalComponent,
   ],
   providers: [RestService],
 })

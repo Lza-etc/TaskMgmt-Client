@@ -1,6 +1,6 @@
 <div class="page">
   <div class="page__title">Projects</div>
-  <div class="add-project">New Project</div>
+  <div class="add-project" (click)="showAddModal()">New Project</div>
   <div class="heading">
     <div class="grid-container">
       <div class="box">Name</div>
@@ -18,3 +18,7 @@
     </div>
   </div>
 </div>
+<app-add-project-modal
+  *ngIf="showProjectModal"
+  (showCreateModal)="setProjectModal($event)"
+></app-add-project-modal>

@@ -18,12 +18,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { AddGroupModalComponent } from './add-group-modal/add-group-modal.component';
 import { EnrollGroupModalComponent } from './enroll-group-modal/enroll-group-modal.component';
+import { AddProjectModalComponent } from './add-project-modal/add-project-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GroupComponent,
-    ModalComponent,
     AddGroupModalComponent,
     EnrollGroupModalComponent,
   ],
@@ -39,6 +39,7 @@ import { EnrollGroupModalComponent } from './enroll-group-modal/enroll-group-mod
     DashboardModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    ModalComponent,
   ],
   providers: [
     UserService,

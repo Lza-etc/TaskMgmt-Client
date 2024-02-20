@@ -11,6 +11,7 @@ import { Project } from '../../models/project';
 export class ProjectComponent implements OnInit {
   groupId!: string;
   projectList!: Project[];
+  showProjectModal: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,5 +30,11 @@ export class ProjectComponent implements OnInit {
         }
       );
     });
+  }
+  showAddModal() {
+    this.showProjectModal = true;
+  }
+  setProjectModal(showProjectModal: boolean) {
+    this.showProjectModal = showProjectModal;
   }
 }

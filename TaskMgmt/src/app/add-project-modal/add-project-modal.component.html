@@ -1,0 +1,29 @@
+<app-modal>
+  <h2>Create Project</h2>
+  <form (ngSubmit)="createGroup()">
+    <div class="form-group">
+      <label for="projectName">Project Name</label>
+      <input
+        type="text"
+        id="projectName"
+        name="projectName"
+        [(ngModel)]="newProject.projectName"
+        required
+      />
+      <label for="projectDescription">Project Description</label>
+      <input
+        type="text"
+        id="projectDescription"
+        name="projectDescription"
+        [(ngModel)]="newProject.projectDescription"
+        required
+      />
+    </div>
+    <div class="buttons">
+      <button class="submit" type="submit">Create</button>
+      <button class="clear" type="button" (click)="closeCreateModal()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</app-modal>
