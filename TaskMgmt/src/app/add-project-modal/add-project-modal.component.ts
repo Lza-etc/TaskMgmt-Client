@@ -18,7 +18,7 @@ export class AddProjectModalComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
+    this.route.parent?.params.subscribe((params) => {
       this.groupId = params['groupId'];
     });
   }

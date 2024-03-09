@@ -28,7 +28,7 @@ export class SigninComponent {
           Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
         ],
       ],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required]],
     });
   }
 

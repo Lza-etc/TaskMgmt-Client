@@ -7,6 +7,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SigninComponent } from './homepage/signin/signin.component';
 import { RegisterComponent } from './homepage/register/register.component';
 import { LoginGuard } from './auth/login.guard';
+import { TasksComponent } from './dashboard/tasks/tasks.component';
 
 export const routes: Routes = [
   {
@@ -24,13 +25,17 @@ export const routes: Routes = [
   },
   { path: 'groups', component: GroupComponent, canActivate: [AuthGuard] },
   {
-    path: 'groups',
+    path: 'groups/:groupId',
     component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
       {
-        path: ':groupId/projects',
+        path: 'projects',
         component: ProjectComponent,
+      },
+      {
+        path: 'projects/:projectId/tasks',
+        component: TasksComponent,
       },
     ],
   },

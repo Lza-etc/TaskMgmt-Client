@@ -42,6 +42,7 @@
   flex-direction: row;
   gap: 8px;
   width: 100%;
+  max-width: 400px;
   justify-content: center;
   font-size: small;
   &__text {

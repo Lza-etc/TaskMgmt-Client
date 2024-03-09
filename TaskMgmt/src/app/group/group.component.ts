@@ -38,7 +38,6 @@ export class GroupComponent implements OnInit {
     });
   }
 
-
   public onSubmit() {
     this.router.navigateByUrl(
       `/groups/${this.groupForm.value.groupId}/projects`

@@ -1,4 +1,6 @@
-<div class="page">
+<!-- <div class="loading" >Loading...</div> -->
+<app-spinner></app-spinner>
+<div class="page" *ngIf="!loader.getLoading()">
   <div class="page__title">Projects</div>
   <div class="add-project" (click)="showAddModal()">New Project</div>
   <div class="heading">
@@ -11,7 +13,17 @@
   <div class="content">
     <div class="grid-container">
       <ng-container *ngFor="let project of projectList">
-        <a class="box link">{{ project.projectName }} </a>
+        <a
+          class="box link"
+          [routerLink]="[
+            '/groups',
+            groupId,
+            'projects',
+            project.projectId,
+            'tasks'
+          ]"
+          >{{ project.projectName }}</a
+        >
         <div class="box">{{ project.projectDescription }}</div>
         <div class="box">{{ project.ownerId }}</div>
       </ng-container>

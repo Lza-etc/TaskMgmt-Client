@@ -1,0 +1,10 @@
+<button (click)="showAddModal()">New Task</button>
+<div class="content">
+  <div class="grid-container">
+    <ng-container *ngFor="let task of taskList">
+      <a class="box link">{{ task.description }}</a>
+      <div class="box">{{ task.createdBy }}</div>
+      <div class="box">{{ task.currentStatus }}</div>
+    </ng-container>
+  </div>
+</div>

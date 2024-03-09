@@ -22,6 +22,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('userToken');
     return next.handle(request).pipe(
       catchError((error) => {
+        console.log(typeof error.error);
         this.toastr.error(error.error);
         throw error;
       })

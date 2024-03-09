@@ -19,6 +19,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { AddGroupModalComponent } from './add-group-modal/add-group-modal.component';
 import { EnrollGroupModalComponent } from './enroll-group-modal/enroll-group-modal.component';
 import { AddProjectModalComponent } from './add-project-modal/add-project-modal.component';
+import { EventService } from './services/event.service';
 
 @NgModule({
   declarations: [

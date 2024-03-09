@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GroupComponent } from '../group/group.component';
 import { ProjectComponent } from './project/project.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +9,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard.component';
 import { AddProjectModalComponent } from '../add-project-modal/add-project-modal.component';
 import { ModalComponent } from '../modal/modal.component';
+import { SpinnerComponent } from '../spinner/spinner.component';
+import { LoaderService } from '../services/loader.service';
+import { TasksComponent } from './tasks/tasks.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { ModalComponent } from '../modal/modal.component';
     NavbarComponent,
     ProjectComponent,
     AddProjectModalComponent,
+    SpinnerComponent,
+    TasksComponent,
   ],
   imports: [
     CommonModule,
@@ -25,8 +28,9 @@ import { ModalComponent } from '../modal/modal.component';
     HttpClientModule,
     FormsModule,
     RouterOutlet,
+    RouterModule,
     ModalComponent,
   ],
-  providers: [RestService],
+  providers: [RestService, LoaderService],
 })
 export class DashboardModule {}

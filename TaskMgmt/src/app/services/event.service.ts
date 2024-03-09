@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class EventService {
   private isSuccessSubject = new BehaviorSubject<boolean>(false);
+  private validCodes: string[] = ['NewP', 'NewC'];
   isSuccess$ = this.isSuccessSubject.asObservable();
 
   emitSuccess(isSuccess: boolean) {
